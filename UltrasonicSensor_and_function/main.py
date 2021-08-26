@@ -13,7 +13,7 @@ from pybricks.robotics import DriveBase
  """
 
 # STEP2:コードを書いてみよう
-""" 
+
 def beep_disp(value, tune): #関数「beep_disp」を使えるようにする（定義する）
     brick.display.text(value,(80,60)) #引数「value」の値を表示
     wait(1000)
@@ -29,5 +29,19 @@ beep_disp(text, pitch_high) #関数の呼び出し（１回目：textを引数�
 beep_disp(num, pitch_low) #関数の呼び出し（２回目：numを引数にあたえる）
 beep_disp(text, pitch_high)
 
- """
+
 # mission challenge
+""" 
+left = Motor(Port.B) #ロボットを動かす準備
+right = Motor(Port.C) #ロボットを動かす準備
+robot = DriveBase(left, right, 56, 55)
+
+def forward_drive(pow, time): #関数「drive_def」を使えるようにする（定義）
+    robot.drive_time(pow, 0, time)
+    brick.sound.beep()
+    robot.stop()
+
+go = 1000
+quick = 5000
+
+forward_drive(go, quick) """

@@ -78,7 +78,13 @@ while True:
      """
 
 # STEP2:コードを書いてみよう
-ultrasonic_sensor = UltrasonicSensor(Port.S4) # 超音波ｾﾝｻｰを使えるようにする
+""" ultrasonic_sensor = UltrasonicSensor(Port.S4) # 超音波ｾﾝｻｰを使えるようにする
+
+while True: # 無限に繰り返す
+    if ultrasonic_sensor.distance() < 100: # 10cm以下になったら
+        brick.light(Color.RED)
+    else:
+        brick.light(None)
 
 while True: # 無限に繰り返す
     if ultrasonic_sensor.distance() < 50: # 5cm以下になったら
@@ -90,4 +96,19 @@ while True: # 無限に繰り返す
             wait(2000)
     else:
         brick.light(None)
-        
+
+ """
+
+# mission challenge
+
+left = Motor(Port.B)
+right = Motor(Port.C)
+robot = DriveBase(left, right, 56, 55)
+
+ultrasonic_sensor = UltrasonicSensor(Port.S4)
+
+while True:
+    if ultrasonic_sensor.distance() < 100:
+        robot.stop()
+    else:
+        robot.drive(100, 0)

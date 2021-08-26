@@ -100,7 +100,7 @@ while True: # 無限に繰り返す
  """
 
 # mission challenge
-
+""" 
 left = Motor(Port.B)
 right = Motor(Port.C)
 robot = DriveBase(left, right, 56, 55)
@@ -112,3 +112,33 @@ while True:
         robot.stop()
     else:
         robot.drive(100, 0)
+ """
+
+# extra mission
+
+left = Motor(Port.B)
+right = Motor(Port.C)
+robot = DriveBase(left, right, 56, 85)
+
+ultrasonic_sensor = UltrasonicSensor(Port.S4)
+
+def go_around(pow, angular_velocity, distance):
+    while ultrasonic_sensor.distance() > distance:
+        robot.drive(pow, 0)
+
+    robot.drive_time(0, angular_velocity, 1000)
+
+go = 200
+spin = 90
+far = 250
+
+go_around(go, spin, far)
+go_around(go, spin, far)
+go_around(go, spin, far)
+go_around(go, spin, far)
+
+robot.drive_time(150, 0, 1500)
+
+robot.drive_time(0, 90, 1000)
+
+robot.drive_time(150, 0, 4500)

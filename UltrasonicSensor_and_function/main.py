@@ -50,7 +50,7 @@ forward_drive(back, long)
 """
 
 # STEP2:コードを書いてみよう
-
+""" 
 brick.light(Color.ORANGE) # オレンジ色に点灯
 wait(2000)
 
@@ -62,3 +62,17 @@ wait(2000)
 
 brick.light(None)
 wait(2000)
+ """
+
+# mission challenge
+
+while True:
+    brick.light(Color.RED)
+    wait(1000)
+    brick.light(None)
+    wait(1000)
+    brick.light(Color.GREEN)
+    wait(1000)
+    brick.light(None)
+    wait(1000)
+    

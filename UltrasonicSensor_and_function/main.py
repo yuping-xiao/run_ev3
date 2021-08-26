@@ -65,7 +65,7 @@ wait(2000)
  """
 
 # mission challenge
-
+""" 
 while True:
     brick.light(Color.RED)
     wait(1000)
@@ -75,4 +75,19 @@ while True:
     wait(1000)
     brick.light(None)
     wait(1000)
-    
+     """
+
+# STEP2:コードを書いてみよう
+ultrasonic_sensor = UltrasonicSensor(Port.S4) # 超音波ｾﾝｻｰを使えるようにする
+
+while True: # 無限に繰り返す
+    if ultrasonic_sensor.distance() < 50: # 5cm以下になったら
+        for i in range(3): # 3回繰り返す
+            brick.sound.beep()
+            brick.light(Color.RED)
+            wait(2000)
+            brick.light(None)
+            wait(2000)
+    else:
+        brick.light(None)
+        
